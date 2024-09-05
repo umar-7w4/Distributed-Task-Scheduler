@@ -1,7 +1,3 @@
-Here’s the **Distributed Task Scheduler** README incorporating the new component tree, goals, objectives, and everything else in a more detailed format:
-
----
-
 # Distributed Task Scheduler
 
 ### Overview
