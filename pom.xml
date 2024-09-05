@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.umar</groupId>
@@ -9,15 +10,14 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <name>TaskScheduler</name>
-    <url>https://github.com/umar/TaskScheduler</url>
-    <description>Reference guide on building a scalable, distributed, fault-tolerant, task scheduler platform using
-        Zookeeper in Java
-    </description>
+    <url>https://github.com/umar-7w4/Distributed-Task-Scheduler</url>
+    <description>Reference guide on building a scalable, distributed, fault-tolerant task scheduler platform using
+        Zookeeper in Java</description>
     <inceptionYear>2024</inceptionYear>
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/umar/TaskScheduler/issues</url>
+        <url>https://github.com/umar-7w4/Distributed-Task-Scheduler</url>
     </issueManagement>
 
     <licenses>
@@ -30,17 +30,17 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/umar/TaskScheduler.git</connection>
-        <developerConnection>scm:git:https://github.com/umar/TaskScheduler.git</developerConnection>
+        <connection>scm:git:https://github.com/umar-7w4/Distributed-Task-Scheduler.git</connection>
+        <developerConnection>scm:git:https://github.com/umar-7w4/Distributed-Task-Scheduler.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/umar/TaskScheduler</url>
+        <url>https://github.com/umar-7w4/Distributed-Task-Scheduler</url>
     </scm>
 
     <developers>
         <developer>
             <id>umar</id>
-            <name>Snehasish Roy</name>
-            <email>umar39@gmail.com</email>
+            <name>Umar Mohammad</name>
+            <email>mohammadumar7w4@gmail.com</email>
         </developer>
     </developers>
 
@@ -51,7 +51,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <dropwizard.version>4.0.1</dropwizard.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -65,6 +64,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.curator</groupId>
@@ -126,33 +126,32 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.13.2</version>
-		    <scope>test</scope>
-		</dependency>
-		
-		<dependency>
-	        <groupId>org.slf4j</groupId>
-	        <artifactId>slf4j-api</artifactId>
-	        <version>1.7.36</version>
-	    </dependency>
-	
-	    <dependency>
-	        <groupId>org.slf4j</groupId>
-	        <artifactId>slf4j-simple</artifactId>
-	        <version>1.7.36</version>
-	    </dependency>
-
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- https://stackoverflow.com/questions/49441049/junit-5-does-not-execute-method-annotated-with-beforeeach -->
+            <!-- JUnit5 Surefire Plugin -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
             </plugin>
+            
+            <!-- Maven Source Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -166,6 +165,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Maven GPG Plugin for artifact signing -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -183,26 +184,12 @@
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
-                            <!-- Run something like 'gpg -ab out' to cache the creds
-                             on agent before running if needed
-                             https://central.sonatype.org/publish/publish-portal-maven/#switching-to-ossrh-during-portal-early-access
-                             https://central.sonatype.org/publish/requirements/gpg/
-                             https://blog.sonatype.com/2010/01/how-to-generate-pgp-signatures-with-maven/
-                             -->
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.4.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                    <tokenAuth>true</tokenAuth>
-                </configuration>
-            </plugin>
+
+            <!-- Maven Shade Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -228,10 +215,8 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>${mainClass}</mainClass>
                                 </transformer>
                             </transformers>
@@ -239,6 +224,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Maven Javadoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
