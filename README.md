@@ -326,5 +326,9 @@ Zookeeper acts as the backbone of the **Distributed Task Scheduler**, handling c
 - **Better Fault Recovery**: Improve fault detection mechanisms and speed up worker recovery after failure.
 - **Job Dependencies**: Allow clients to submit jobs that depend on the completion of other jobs.
 
+### License
 
+```
+This project is licensed under the @2024 Umar Mohammad
+```
 
