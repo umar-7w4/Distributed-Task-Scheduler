@@ -140,10 +140,6 @@ Here is the detailed component tree of the project based on the system structure
 
 The architecture of the **Distributed Task Scheduler** is built to ensure efficient task scheduling and execution in a distributed system. Below is the architecture diagram that illustrates the interaction between components:
 
-### Architecture Diagram:
-
-![Distributed Task Scheduler Architecture](link_to_architecture_diagram)
-
 ### Architecture Components:
 
 1. **Client**: 
