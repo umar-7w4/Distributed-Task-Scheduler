@@ -359,6 +359,20 @@ Run the following command to start the Zookeeper server in the foreground:
 sudo ./zkServer.sh start-foreground
 ```
 
+## Tools for Zookeeper Visualization
+
+For Zookeeper visualization, you can use the following tool:
+
+[Zoonavigator](https://github.com/elkozmon/zoonavigator)
+
+## Running the Application
+
+Main class: `com.umar.taskscheduler.App`
+
+Arguments: `server local.yml`
+
+If you want to run multiple instances of the application, just change both the ports present in `local.yml` and run the application.
+
 
 ## Technologies Used
 
