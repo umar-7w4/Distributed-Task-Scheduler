@@ -13,7 +13,7 @@ The **Distributed Task Scheduler** is a fault-tolerant and scalable distributed 
 - [Goals and Objectives](#goals-and-objectives)
 - [Features](#features)
 - [Component Tree](#component-tree)
-- [Architecture](#architecture)
+- [Architecture with Diagram](#architecture)
 - [High-Level Design (HLD)](#high-level-design-hld)
 - [Low-Level Design (LLD)](#low-level-design-lld)
 - [Core Components](#core-components)
@@ -141,6 +141,8 @@ Here is the detailed component tree of the project based on the system structure
 ## Architecture
 
 The architecture of the **Distributed Task Scheduler** is built to ensure efficient task scheduling and execution in a distributed system. Below is the architecture diagram that illustrates the interaction between components:
+
+![Task Scheduler](Task Scheduler.jpeg)
 
 ### Architecture Components:
 
