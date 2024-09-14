@@ -4,6 +4,8 @@
 
 The **Distributed Task Scheduler** is a fault-tolerant and scalable distributed system that dynamically assigns tasks to worker nodes. It uses **Zookeeper** for worker coordination, leader election, and task assignment. The system ensures task execution in a distributed environment, with built-in recovery for worker failures.
 
+
+
 ---
 
 ### Table of Contents
@@ -306,6 +308,57 @@ Zookeeper acts as the backbone of the **Distributed Task Scheduler**, handling c
    ```
 
 ---
+
+## Maven Dependency
+
+Use the following maven dependency:
+
+```xml
+<dependency>
+    <groupId>com.snehasishroy</groupId>
+    <artifactId>TaskScheduler</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+## Starting Zookeeper Server
+
+This service requires **Zookeeper Server version 3.5.4 or higher** because it uses TTL Nodes. Additionally, the `extendedTypesEnabled` flag must be set when starting the Zookeeper Server.
+
+### Configuring Zookeeper
+
+Edit the `zkEnv.sh` file to set the necessary environment variables:
+
+```bash
+vim {ZK}/bin/zkEnv.sh
+```
+
+Add the following line:
+
+```bash
+export SERVER_JVMFLAGS="-Xmx${ZK_SERVER_HEAP}m $SERVER_JVMFLAGS -Dzookeeper.extendedTypesEnabled=true"
+```
+
+### Sample zoo.cfg
+
+Here is a sample `zoo.cfg` configuration file:
+
+```bash
+tickTime = 200
+dataDir = /data/zookeeper
+clientPort = 2181
+initLimit = 5
+syncLimit = 2
+```
+
+### Starting the Zookeeper Server
+
+Run the following command to start the Zookeeper server in the foreground:
+
+```bash
+sudo ./zkServer.sh start-foreground
+```
+
 
 ## Technologies Used
 
