@@ -1,5 +1,5 @@
 # Distributed Task Scheduler
-
+ 
 ### Project Overview
 
 The **Distributed Task Scheduler** is a fault-tolerant and scalable distributed system that dynamically assigns tasks to worker nodes. It uses **Zookeeper** for worker coordination, leader election, and task assignment. The system ensures task execution in a distributed environment, with built-in recovery for worker failures.
