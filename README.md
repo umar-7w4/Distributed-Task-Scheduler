@@ -2,7 +2,7 @@
  
 ### Project Overview
 
-The **Distributed Task Scheduler** is a fault-tolerant and scalable distributed system that dynamically assigns tasks to worker nodes. It uses **Zookeeper** for worker coordination, leader election, and task assignment. The system ensures task execution in a distributed environment, with built-in recovery for worker failures.
+The **Distributed Task Scheduler** is a fault tolerant and scalable distributed system that dynamically assigns tasks to worker nodes. It uses **Zookeeper** for worker coordination, leader election, and task assignment. The system ensures task execution in a distributed environment, with built in recovery for worker failures.
 
 
  
@@ -389,9 +389,9 @@ If you want to run multiple instances of the application, just change both the p
 
 ## Future Enhancements
 
-- **Task Prioritization**: Implement the ability to prioritize tasks based on client-defined rules.
+- **Task Prioritization**: Implement the ability to prioritize tasks based on client defined rules.
 - **Docker Task Execution**: Enable the system to execute tasks inside Docker containers, allowing for more complex and isolated workloads.
-- **Metrics and Monitoring**: Add Prometheus and Grafana for real-time monitoring of the system’s performance and task statuses.
+- **Metrics and Monitoring**: Add Prometheus and Grafana for real time monitoring of the system’s performance and task statuses.
 - **Better Fault Recovery**: Improve fault detection mechanisms and speed up worker recovery after failure.
 - **Job Dependencies**: Allow clients to submit jobs that depend on the completion of other jobs.
 
